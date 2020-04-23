@@ -1,0 +1,135 @@
+{
+    "statuses": [
+      {
+        "created_at": "Sat Apr 18 16:40:00 +0000 2020",
+        "id": 1251551060931608600,
+        "id_str": "1251551060931608579",
+        "text": "How do you encourage #SRE, improved #observability and happier customers without causing operations inefficiency? L… https://t.co/Rsg2OsUBiz",
+        "truncated": "True",
+        "entities": {
+          "hashtags": [
+            {
+              "text": "SRE",
+              "indices": [
+                21,
+                25
+              ]
+            },
+            {
+              "text": "observability",
+              "indices": [
+                36,
+                50
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": [
+            {
+              "url": "https://t.co/Rsg2OsUBiz",
+              "expanded_url": "https://twitter.com/i/web/status/1251551060931608579",
+              "display_url": "twitter.com/i/web/status/1…",
+              "indices": [
+                117,
+                140
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "source": "<a href=\"https://ads-api.twitter.com\" rel=\"nofollow\">Twitter for Advertisers</a>",
+        "in_reply_to_status_id": "None",
+        "in_reply_to_status_id_str": "None",
+        "in_reply_to_user_id": "None",
+        "in_reply_to_user_id_str": "None",
+        "in_reply_to_screen_name": "None",
+        "user": {
+          "id": 1004489096,
+          "id_str": "1004489096",
+          "name": "VictorOps 👩‍💻👨‍💻",
+          "screen_name": "VictorOps",
+          "location": "Boulder CO",
+          "description": "VictorOps, acquired by @Splunk, is the go-to on-call and real-time incident management platform. Combine the power of people and data to embolden DevOps teams.",
+          "url": "https://t.co/oM8QAVFfqX",
+          "entities": {
+            "url": {
+              "urls": [
+                {
+                  "url": "https://t.co/oM8QAVFfqX",
+                  "expanded_url": "http://victorops.com",
+                  "display_url": "victorops.com",
+                  "indices": [
+                    0,
+                    23
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "urls": []
+            }
+          },
+          "protected": "False",
+          "followers_count": 7651,
+          "friends_count": 6513,
+          "listed_count": 268,
+          "created_at": "Tue Dec 11 17:29:31 +0000 2012",
+          "favourites_count": 4687,
+          "utc_offset": "None",
+          "time_zone": "None",
+          "geo_enabled": "True",
+          "verified": "False",
+          "statuses_count": 7018,
+          "lang": "None",
+          "contributors_enabled": "False",
+          "is_translator": "False",
+          "is_translation_enabled": "False",
+          "profile_background_color": "000000",
+          "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+          "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+          "profile_background_tile": "False",
+          "profile_image_url": "http://pbs.twimg.com/profile_images/1166740256843919361/5Yp_4_1e_normal.png",
+          "profile_image_url_https": "https://pbs.twimg.com/profile_images/1166740256843919361/5Yp_4_1e_normal.png",
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/1004489096/1583187249",
+          "profile_link_color": "65A637",
+          "profile_sidebar_border_color": "000000",
+          "profile_sidebar_fill_color": "DDEEF6",
+          "profile_text_color": "333333",
+          "profile_use_background_image": "True",
+          "has_extended_profile": "False",
+          "default_profile": "False",
+          "default_profile_image": "False",
+          "following": "None",
+          "follow_request_sent": "None",
+          "notifications": "None",
+          "translator_type": "none"
+        },
+        "geo": "None",
+        "coordinates": "None",
+        "place": "None",
+        "contributors": "None",
+        "is_quote_status": "False",
+        "retweet_count": 0,
+        "favorite_count": 0,
+        "favorited": "False",
+        "retweeted": "False",
+        "possibly_sensitive": "False",
+        "lang": "en"
+      }
+    ],
+    "search_metadata": {
+      "completed_in": 0.016,
+      "max_id": 1251551060931608600,
+      "max_id_str": "1251551060931608579",
+      "next_results": "?max_id=1251551060931608578&q=%23sre&count=2&include_entities=1&result_type=recent",
+      "query": "%23sre",
+      "refresh_url": "?since_id=1251551060931608579&q=%23sre&result_type=recent&include_entities=1",
+      "count": 2,
+      "since_id": 0,
+      "since_id_str": "0"
+    }
+  }

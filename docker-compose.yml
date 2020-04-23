@@ -1,0 +1,118 @@
+version: '3'
+services:
+  
+  frontend:
+    image: odockerdotiago/twitter-app-fe:v0.1
+    container_name: twitter-app-frontend
+    environment:
+      - MONGODB_USER=mongoadmin
+      - MONGODB_PWD=mongopasswd
+      - MONGODB_HOST=mongodb
+      - MONGODB_PORT=27017
+      - METRICS_PORT=9200
+      - LOG_PATH=/var/log/twitter-app/
+      - LOG_FILE=true
+    volumes:
+      - twitter-app-logs:/var/log/twitter-app/
+    ports:
+      - 80:8080
+    networks: 
+      - twitter-app-network
+    depends_on:
+      - mongodb
+
+  backend:
+    image: odockerdotiago/twitter-app-be:v0.1
+    container_name: twitter-app-backend
+    environment:
+      - TWITTER_API_CLIENT_KEY=
+      - TWITTER_API_CLIENT_SECRET=
+      - MONGODB_USER=mongoadmin
+      - MONGODB_PWD=mongopasswd
+      - MONGODB_HOST=mongodb
+      - MONGODB_PORT=27017
+      - MONGODB_DROP=true
+      - LOG_PATH=/var/log/twitter-app/
+      - LOG_FILE=true
+    volumes:
+      - twitter-app-logs:/var/log/twitter-app/
+    networks: 
+      - twitter-app-network
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:4.2.5-bionic
+    container_name: twitter-app-mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongoadmin
+      - MONGO_INITDB_ROOT_PASSWORD=mongopasswd
+    volumes:
+      - twitter-app-database:/data/db
+    networks: 
+      - twitter-app-network
+
+  prometheus:
+    image: prom/prometheus:v2.2.1
+    container_name: twitter-app-prometheus
+    volumes:
+      - ./prometheus/config.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    networks: 
+      - twitter-app-network
+
+  grafana:
+    image: grafana/grafana:5.1.0
+    container_name: twitter-app-grafana
+    volumes:
+      - ./grafana/config.ini:/etc/grafana/grafana.ini
+      - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/default.yaml
+      - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/default.yaml
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    ports:
+      - 8080:3000
+    networks: 
+      - twitter-app-network
+    depends_on: 
+      - prometheus
+
+  filebeat:
+    image: odockerdotiago/filebeat:v0.1
+    container_name: twitter-app-filebeat
+    volumes:
+      - twitter-app-logs:/usr/share/filebeat/dockerlogs/
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks: 
+      - twitter-app-network
+    depends_on: 
+      - elasticsearch
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+    container_name: twitter-app-elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks: 
+      - twitter-app-network
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.6.2
+    container_name: twitter-app-kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - 8081:5601
+    networks: 
+      - twitter-app-network
+
+networks: 
+  twitter-app-network:
+    driver: bridge
+
+volumes:
+  twitter-app-database:
+  twitter-app-logs:

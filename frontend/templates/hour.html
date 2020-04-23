@@ -1,0 +1,19 @@
+{% extends "template.html" %}
+{% block content %}
+    <table class="table table-striped table-responsive table-bordered">
+        <thead>
+            <tr>
+                <th>Count</th>
+                <th>Hour</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for h in hour %}
+                        <tr>
+                            <td>{{ h.count }}</td>
+                            <td>{{ h.hour }}</td>
+                        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
