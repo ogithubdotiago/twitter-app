@@ -121,7 +121,7 @@
   | http://127.0.0.1t/posts | Total de postagens, agrupadas por hora do dia |
   | http://127.0.0.1/location | Total de postagens para cada #tag por localização |
   | http://127.0.0.1:8080 | Dashboard para visualização de métricas do frontend |
-    | http://127.0.0.1:8081 | Dashboard para visualização de logs |
+  | http://127.0.0.1:8081 | Dashboard para visualização de logs |
 
 **Métricas**
 ----
